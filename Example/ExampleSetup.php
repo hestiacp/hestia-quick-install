@@ -40,6 +40,7 @@ class ExampleSetup extends BaseSetup {
     public function install(array $options = null)
     {
         //parent::install will install the the resource on in /home/{user}/web/{domain}/public_html
+        //Currenly only archive and composer project is supported. 
         parent::install($options);
         /*  
             Some can config need to be manipulated with config files
