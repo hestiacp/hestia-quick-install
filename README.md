@@ -5,7 +5,7 @@ With the new system users can simply upload a folder into /usr/local/hestia/web/
 
 ## Creating new apps
 
-The example that can be found should be enough to create a simpe Quick install app. 
+The example that can be found should be enough to create a simple Quick install app. 
 
 Please note currently installing via composer or archive is currently supported. 
 
