@@ -5,7 +5,11 @@ With the new system users can simply upload a folder into /usr/local/hestia/web/
 
 ## Creating new apps
 
+The example that can be found should be enough to create a simpe Quick install app. 
 
+Please note currently installing via composer or archive is currently supported. 
+
+Also make sure to prevent any issues in the future that all commands are executed as the user. Instead the root user or admin user. All the commands that are supplied by HestiaCP do this by default.
 
 ## Converting 1.3.x or older apps
 
