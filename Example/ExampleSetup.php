@@ -33,7 +33,8 @@ class ExampleSetup extends BaseSetup {
             //resoruce may be an archive (zip, tar.gz)
             'archive'  => [ 'src' => 'https://download.example.com/example.version.tar.gz' ],
             //or an composer project for example.
-            'composer' => [ 'src' => 'example/projext', 'dst' => '/' ]
+            //By default composer v2 is used if you need to use v1 you can append 'version' => 1 to the composer array 
+            'composer' => [ 'src' => 'example/projext', 'dst' => '/', 'version' => 1 ]
         ], 
     ];
     
