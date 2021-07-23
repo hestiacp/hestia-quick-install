@@ -11,6 +11,8 @@ Please note currently installing via composer or archive is currently supported.
 
 Also make sure to prevent any issues in the future that all commands are executed as the user. Instead the root user or admin user. All the commands that are supplied by HestiaCP do this by default.
 
+Please be aware that the naming of your WebApp should follow the following regex: [a-zA-Z][a-zA-Z0,9] otherwise it will not register as a working app!
+
 ## Converting 1.3.x or older apps
 
 Converting an older 1.3 app to the new 1.4 standard is quite easy
