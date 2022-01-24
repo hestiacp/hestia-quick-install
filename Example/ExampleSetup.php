@@ -36,6 +36,14 @@ class ExampleSetup extends BaseSetup {
             //By default composer v2 is used if you need to use v1 you can append 'version' => 1 to the composer array 
             'composer' => [ 'src' => 'example/projext', 'dst' => '/', 'version' => 1 ]
         ], 
+        'server' => [
+            'nginx' => [
+                'template' => 'wordpress',
+            ],
+            'apache2' => [
+                'template' => 'example',
+            ],
+        ],
     ];
     
     public function install(array $options = null)

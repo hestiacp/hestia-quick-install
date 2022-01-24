@@ -1,4 +1,4 @@
-# Base php class for creating an Quick Install App for Hestia CP 1.4 and newer
+# Example php class for creating an Quick Install App for Hestia CP 1.4 and newer
 
 In Hestia CP 1.4 we have decided to improve the Quick installer "App" to enable more flexibility in the near feature. 
 With the new system users can simply upload a folder into /usr/local/hestia/web/src/app/WebApp/Installers/ and if the folder (AppName) contains a file name AppNameSetup.php it will add to the available apps list. 
@@ -27,10 +27,33 @@ And add following line below namespace Hestia\WebApp\Installers\MyApp;
 
 Then add the follow info to the class 
 
-    protected $appInfo = [ 
-        'name' => 'Example',
-        'group' => 'cms',
-        'enabled' => true,
-        'version' => 'latest',
-        'thumbnail' => 'example.png' //Max size is 300px by 300px 
-    ];
+```
+protected $appInfo = [ 
+    'name' => 'Example',
+    'group' => 'cms',
+    'enabled' => true,
+    'version' => 'latest',
+    'thumbnail' => 'example.png' //Max size is 300px by 300px 
+];
+```
+
+## Changelog
+
+### 1.5.5
+
+- Added support for including templates in Quick install app (Optional)
+
+```
+'server' => [
+    'nginx' => [
+        'template' => 'example',
+    ],
+    'apache2' => [
+        'template' => 'example',
+    ],
+],
+```
+
+Will load "example" template when activated. When left blank the template will be kept the same as it is currenlty. 
+
+It is currently not possible to include the template in the Quick install app it self. And the file allready needs to exist in /usr/local/hestia/data/templates/web/{webserver}/php-fpm/
