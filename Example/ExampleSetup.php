@@ -10,6 +10,7 @@ class ExampleSetup extends BaseSetup {
     protected $appInfo = [ 
         'name' => 'Example',
         'group' => 'cms',
+        //keep always set to enabled. When PHP version isn't supported it will change it to no and disable it
         'enabled' => true,
         'version' => 'latest',
         'thumbnail' => 'example.png' //Max size is 300px by 300px 
@@ -21,7 +22,11 @@ class ExampleSetup extends BaseSetup {
             //Note at least one input field is currently required
             'protocol' => [ 
                 'type' => 'select',
+                //type in this case dropdown / select
                 'options' => ['http','https'],
+                //default options
+                'value' => 'https'
+                //value for default value 
             ],
             'site_name' => ['type'=>'text', 'value'=>'Demo'],
             'username' => ['value'=>'Username'],
@@ -32,9 +37,11 @@ class ExampleSetup extends BaseSetup {
         'resources' => [
             //resoruce may be an archive (zip, tar.gz)
             'archive'  => [ 'src' => 'https://download.example.com/example.version.tar.gz' ],
-            //or an composer project for example.
+            //or a composer project for example.
             //By default composer v2 is used if you need to use v1 you can append 'version' => 1 to the composer array 
-            'composer' => [ 'src' => 'example/projext', 'dst' => '/', 'version' => 1 ]
+            'composer' => [ 'src' => 'example/projext', 'dst' => '/', 'version' => 1 ],
+            # even src is set it will download wordpress via wp-cli. Currently only downloading is done over cli. Setting up is still done with curl. 
+            'wp'  => [ 'src' => 'https://wordpress.org/latest.tar.gz' ],
         ], 
         'server' => [
             'nginx' => [
@@ -43,13 +50,18 @@ class ExampleSetup extends BaseSetup {
             'apache2' => [
                 'template' => 'example',
             ],
+            'php' => [
+                //list of supported php versions if available it will always select the last version
+                //When non is available it will disable the "Quick install app" in the view
+                'supported' => [ '7.4','8.0','8.1' ],
+            ],
         ],
     ];
     
     public function install(array $options = null)
     {
         //parent::install will install the the resource on in /home/{user}/web/{domain}/public_html
-        //Currenly only archive and composer project is supported. 
+        //Currenly only archive and composer project and wp-cli is supported. 
         parent::install($options);
         /*  
             Some can config need to be manipulated with config files
