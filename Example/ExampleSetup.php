@@ -90,4 +90,4 @@ class ExampleSetup extends BaseSetup {
 
     }
 }
-// When done upload the folder to /web/local/hesita/web/src/app/WebApp/Installers
+// When done upload the folder to /usr/local/hestia/web/src/app/WebApp/Installers
